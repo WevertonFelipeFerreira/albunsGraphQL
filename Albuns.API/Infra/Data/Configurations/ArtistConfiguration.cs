@@ -21,7 +21,8 @@ namespace Albuns.API.Infra.Data.Configurations
                     Name = "Jay-Z",
                     Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Jay-Z_%40_Shawn_%27Jay-Z%27_Carter_Foundation_Carnival_%28crop_2%29.jpg/330px-Jay-Z_%40_Shawn_%27Jay-Z%27_Carter_Foundation_Carnival_%28crop_2%29.jpg",
                     MusicalGenre = "Hip hop, Rap",
-                    Country = "EUA"
+                    Country = "EUA",
+                    CreatedAt = DateTime.Now
                 });
         }
     }
