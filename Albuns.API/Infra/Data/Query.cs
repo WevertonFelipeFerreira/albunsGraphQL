@@ -7,10 +7,6 @@ namespace Albuns.API.Infra.Data
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Album> GetAlbuns([Service] AlbunsDbContext context)
-        {
-            var result = context.Albuns;
-            return context.Albuns;
-        }
+        public IQueryable<Album> GetAlbuns([Service] AlbunsDbContext context) => context.Albuns;
     }
 }
