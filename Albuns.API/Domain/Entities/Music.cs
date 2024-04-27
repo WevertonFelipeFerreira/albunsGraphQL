@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Albuns.API.Domain.Types;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Albuns.API.Domain.Entities.Base;
 
 namespace Albuns.API.Domain.Entities
 {
@@ -11,8 +11,8 @@ namespace Albuns.API.Domain.Entities
         public string? Name { get; set; }
         public bool Explict { get; set; }
 
-        [GraphQLIgnore]
-        public TimeSpan DurationTS { get; set; }
+        [GraphQLType<TimeSpanStringType>]
+        public TimeSpan Duration { get; set; }
 
         [ForeignKey("AlbumId")]
         [GraphQLIgnore]
@@ -20,12 +20,6 @@ namespace Albuns.API.Domain.Entities
 
         [GraphQLIgnore]
         public Album? Album { get; set; }
-
-        public string Duration()
-        {
-            return DurationTS.ToString();
-        }
-
         public DateTime CreatedAt { get; set; }
     }
 }

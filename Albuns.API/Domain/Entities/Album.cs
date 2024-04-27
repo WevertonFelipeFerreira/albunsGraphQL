@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Albuns.API.Domain.Entities.Base;
 
 namespace Albuns.API.Domain.Entities
 {

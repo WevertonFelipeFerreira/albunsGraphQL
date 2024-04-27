@@ -20,7 +20,7 @@ namespace Albuns.API.Infra.Data.Configurations
                     Id = Guid.NewGuid(),
                     Name = "Dirt Off Your Shoulder / Lying From You",
                     Explict = true,
-                    DurationTS = new TimeSpan(0, 4, 04),
+                    Duration = new TimeSpan(0, 4, 04),
                     AlbumID = _albumIds[0],
                     CreatedAt = DateTime.Now
                 },
@@ -29,7 +29,7 @@ namespace Albuns.API.Infra.Data.Configurations
                     Id = Guid.NewGuid(),
                     Name = "Big Pimpin' / Papercut",
                     Explict = true,
-                    DurationTS = new TimeSpan(0, 2, 36),
+                    Duration = new TimeSpan(0, 2, 36),
                     AlbumID = _albumIds[0],
                     CreatedAt = DateTime.Now
                 },
@@ -38,7 +38,7 @@ namespace Albuns.API.Infra.Data.Configurations
                     Id = Guid.NewGuid(),
                     Name = "Jigga What / Faint",
                     Explict = true,
-                    DurationTS = new TimeSpan(0, 3, 31),
+                    Duration = new TimeSpan(0, 3, 31),
                     AlbumID = _albumIds[0],
                     CreatedAt = DateTime.Now
                 },
@@ -47,7 +47,7 @@ namespace Albuns.API.Infra.Data.Configurations
                     Id = Guid.NewGuid(),
                     Name = "Numb / Encore",
                     Explict = true,
-                    DurationTS = new TimeSpan(0, 3, 25),
+                    Duration = new TimeSpan(0, 3, 25),
                     AlbumID = _albumIds[0],
                     CreatedAt = DateTime.Now
                 },
@@ -56,7 +56,7 @@ namespace Albuns.API.Infra.Data.Configurations
                     Id = Guid.NewGuid(),
                     Name = "Izzo / In the End",
                     Explict = true,
-                    DurationTS = new TimeSpan(0, 2, 44),
+                    Duration = new TimeSpan(0, 2, 44),
                     AlbumID = _albumIds[0],
                     CreatedAt = DateTime.Now
                 },
@@ -65,7 +65,7 @@ namespace Albuns.API.Infra.Data.Configurations
                     Id = Guid.NewGuid(),
                     Name = "Points of Authority / 99 Problems / One Step Closer",
                     Explict = true,
-                    DurationTS = new TimeSpan(0, 4, 55),
+                    Duration = new TimeSpan(0, 4, 55),
                     AlbumID = _albumIds[0],
                     CreatedAt = DateTime.Now
                 });

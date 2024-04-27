@@ -1,4 +1,6 @@
+using Albuns.API.Domain.Types;
 using Albuns.API.Infra.Data;
+using Albuns.API.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +13,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AlbunsDbContext>(opt => opt.UseSqlite(connectionString));
 
+builder.Services.AddScoped<AlbunsRepository>();
+
 builder.Services.AddGraphQLServer().AddQueryType<Query>()
+                                   .AddType(new TimeSpanStringType())
+                                   .RegisterService<AlbunsRepository>(ServiceKind.Resolver)
                                    .AddProjections()
                                    .AddFiltering()
                                    .AddSorting();
+
 var app = builder.Build();
 
 CreateDatabase(app);
