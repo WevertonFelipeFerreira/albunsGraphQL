@@ -12,7 +12,7 @@ namespace Albuns.API.Infra.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             var artistsIds = Guid.NewGuid().CreateMany(2).ToArray();
-            var albumIds = Guid.NewGuid().CreateMany(4).ToArray();
+            var albumIds = Guid.NewGuid().CreateMany(3).ToArray();
 
             builder.ApplyConfiguration(new ArtistConfiguration(artistsIds));
             builder.ApplyConfiguration(new AlbumConfiguration(albumIds, artistsIds));

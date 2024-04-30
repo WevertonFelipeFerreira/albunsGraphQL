@@ -15,9 +15,6 @@ namespace Albuns.API.Domain.Models
         [GraphQLType<TimeSpanStringType>]
         public TimeSpan Duration { get; set; }
 
-        [GraphQLNonNullType]
-        public DateTime CreatedAt { get; set; }
-
         public static ICollection<Music> MapToEntity(IEnumerable<MusicModel> musicsModels)
         {
             var musicsMapped = new List<Music>();

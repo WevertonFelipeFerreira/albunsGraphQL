@@ -7,7 +7,7 @@ namespace Albuns.API.Infra.Data
     {
         [UseProjection] // Deixa explícito o uso de projeções (consulta dinâmico)
         [UseFiltering] // Adiciona os filtros de busca padrão
-        public IQueryable<Album> GetAlbun(AlbunsRepository repository, CancellationToken cancellationToken)
+        public IQueryable<Album> GetAlbum(AlbunsRepository repository, CancellationToken cancellationToken)
             => repository.GetAlbuns(cancellationToken);
 
         [UseProjection]

@@ -23,6 +23,15 @@ namespace Albuns.API.Infra.Data.Configurations
                     MusicalGenre = "Hip hop, Rap",
                     Country = "EUA",
                     CreatedAt = DateTime.Now
+                },
+                new Artist
+                {
+                    Id = _artistsIds[1],
+                    Name = "O Rappa",
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/ORappa-show-small.jpg/375px-ORappa-show-small.jpg",
+                    MusicalGenre = "Rock alternativo, reggae rock, rap rock, funk rock, dub",
+                    Country = "BR",
+                    CreatedAt = DateTime.Now
                 });
         }
     }

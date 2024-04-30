@@ -6,6 +6,7 @@ namespace Albuns.API.Infra.Data
 {
     public class Mutation
     {
+        [GraphQLDescription("Create a album")]
         public async Task<Album> CreateAlbumAsync(CreateAlbumInput input, AlbunsRepository albumRepository, ArtistRepository artistRepository, CancellationToken cancellationToken)
         {
             var dbArtist = await artistRepository.GetArtistByQueryAsync(x => x.Id == input.ArtistId);
