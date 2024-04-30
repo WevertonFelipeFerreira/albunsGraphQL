@@ -33,18 +33,18 @@ namespace Albuns.API.Infra.Data.Repositories
                 .Include(x => x.Musics)
                 .FirstOrDefaultAsync();
         }
-        public async Task<Album?> GetAlbunsByFilter(Expression<Func<Album, bool>> filter)
+        public async Task<Album?> GetAlbunsByFilter(Expression<Func<Album, bool>> filter, CancellationToken cancellationToken)
         {
             return await _context.Albuns.Where(filter)
                 .Include(x => x.Artist)
                 .Include(x => x.Musics)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(cancellationToken);
         }
 
-        public async Task CreateAlbumAsync(Album input) 
+        public async Task CreateAlbumAsync(Album input, CancellationToken cancellationToken) 
         {
-            await _context.Albuns.AddAsync(input);
-            await _context.SaveChangesAsync();
+            await _context.Albuns.AddAsync(input, cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }
