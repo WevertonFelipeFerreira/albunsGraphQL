@@ -2,6 +2,7 @@ using Albuns.API.Domain.Types;
 using Albuns.API.Infra.Data;
 using Albuns.API.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,13 +15,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AlbunsDbContext>(opt => opt.UseSqlite(connectionString));
 
 builder.Services.AddScoped<AlbunsRepository>();
+builder.Services.AddScoped<ArtistRepository>();
 
 builder.Services.AddGraphQLServer().AddQueryType<Query>()
-                                   .AddType(new TimeSpanStringType())
+                                   .AddMutationType<Mutation>()
+                                   .AddType<TimeSpanStringType>()
                                    .RegisterService<AlbunsRepository>(ServiceKind.Resolver)
+                                   .RegisterService<ArtistRepository>(ServiceKind.Resolver)
                                    .AddProjections()
-                                   .AddFiltering()
-                                   .AddSorting();
+                                   .AddSorting()
+                                   .AddFiltering();
 
 var app = builder.Build();
 

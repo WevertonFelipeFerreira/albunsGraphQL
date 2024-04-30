@@ -1,5 +1,8 @@
 ﻿using Albuns.API.Domain.Entities;
+using Albuns.API.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq.Expressions;
 
 namespace Albuns.API.Infra.Data.Repositories
 {
@@ -29,6 +32,19 @@ namespace Albuns.API.Infra.Data.Repositories
                 .Include(x => x.Artist)
                 .Include(x => x.Musics)
                 .FirstOrDefaultAsync();
+        }
+        public async Task<Album?> GetAlbunsByFilter(Expression<Func<Album, bool>> filter)
+        {
+            return await _context.Albuns.Where(filter)
+                .Include(x => x.Artist)
+                .Include(x => x.Musics)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task CreateAlbumAsync(Album input) 
+        {
+            await _context.Albuns.AddAsync(input);
+            await _context.SaveChangesAsync();
         }
     }
 }
